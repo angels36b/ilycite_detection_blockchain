@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic layout - Разметка</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/neovis.js@2.1.0/dist/neovis.js"></script>
+
+</head>
+
+
+<body>
+  
+    <div class="container">
+
+        <header>
+            <img class="logo" src="images/Logo.png" alt="">
+            <nav class="primary">
+                <ul>
+                    <li><a href="#"> Angel</a> </li>
+                    <li><a href="#"> About</a> </li>
+                  
+                </ul>
+            </nav>
+        </header>
+
+        <div class="columns">
+
+            <aside class="pre">
+                <div style ="margin-bottom: 20 px;">
+                    <input type="text" id="walletInput" placeholder="Enter Wallet Address..."
+                           style="width: 300px; padding: 10px;">
+                    <button onclick="handleSearch()" style="padding: 10px; cursor: pointer;">
+                        Analyze Connections
+                    </button>          
+                </div>
+            
+            </aside>
+
+            <article class="Main">
+                <div id="graph-container"></div>
+
+        
+            </article>
+
+            </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

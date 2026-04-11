@@ -1,0 +1,102 @@
+
+/** (*) Selector targets every element on the page **/
+/** Remove default spacing that browser add to elements like <body>, <ul>
+this give a clean, consistent starting poin**/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    
+   
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    background-color: #e0e0e0;
+}
+
+.primary ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.primary a {
+    text-decoration: none;
+    color: brown;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.primary a:hover {
+    color: rgb(110, 22, 22);
+    background-color: bisque;
+    border-radius: 4px;
+}
+
+.columns{
+    display:flex;
+    gap:30px;
+    align-items: stretch;
+}
+.sidebar, .main{
+flex: 1;
+
+padding: 24px;
+border-radius: 12px;
+}
+
+.pre{
+    flex:1;
+ 
+}
+
+.main {
+    flex:1;
+    background-color:lightskyblue;
+    padding:10px;
+    border-radius: 12 px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.main {
+    background-color: #F54927;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.pre {
+    background-color: #e8f0fe;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+
+
+@media(max-width: 768px){
+    .columns {
+        flex-direction:column;
+    }
+}

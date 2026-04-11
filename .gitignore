@@ -1,0 +1,4 @@
+*.csv
+python/*.csv
+python/prueba_ia.py
+node_modules
