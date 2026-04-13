@@ -104,3 +104,25 @@ with torch.no_grad(): #We open a context manager that tells PyTorch: "Do not cal
     y_true = graph_data.y[known_mask].numpy()
     y_pred = predicted_classes[known_mask].numpy()
     print(classification_report(y_true, y_pred, target_names=['Licit (0)', 'Illicit (1)']))
+
+
+print("\n--- STEP 5: EXPORTING THE BRAIN ---")
+
+# 1. Define the file name (extension .pth is standard for PyTorch)
+model_path = "aml_gcn_model.pth"
+
+# 2. Extract the weights (state_dict) and save them to the hard drive
+torch.save(model.state_dict(), model_path)
+
+print(f"Success!  to: {model_path}")
+
+print("\n--- STEP 5: EXPORTING THE BRAIN ---")
+
+# 1. Define the file name (extension .pth is standard for PyTorch)
+model_path = "aml_gcn_model.pth"
+
+# 2. Extract the weights (state_dict) and save them to the hard drive
+torch.save(model.state_dict(), model_path)
+
+print(f"Success! The AI's brain has been exported to: {model_path}")
+print("You can now close VS Code without losing what the model learned.")
