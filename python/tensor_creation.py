@@ -46,4 +46,4 @@ edge_index_tensor = torch.tensor(df_edge[['txId1', 'txId2']].values, dtype=torch
 
 graph_data = Data(x=x_tensor, edge_index=edge_index_tensor, y=y_tensor)
 print("\n--- RESULTADO FINAL: EL GRAFO VECTORIZADO ---")
-print(graph_data)
+print(graph_data)  
