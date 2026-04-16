@@ -7,46 +7,66 @@
     <title>Semantic layout - Разметка</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/neovis.js@2.1.0/dist/neovis.js"></script>
+    <!--Загрузите библиотеку plotly-->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script> 
 
 </head>
 
 
-<body>
+<body class="tech-bg">
   
     <div class="container">
 
-        <header>
-            <img class="logo" src="images/Logo.png" alt="">
-            <nav class="primary">
-                <ul>
-                    <li><a href="#"> Angel</a> </li>
-                    <li><a href="#"> About</a> </li>
-                  
-                </ul>
-            </nav>
+        <header class="main-header">
+            <h1 class="project-title">Система финансовой криминалистики </h1>
         </header>
 
-        <div class="columns">
+        <section class ="info-box">
+            <h3>О пректе</h3>
+            <p>
+            Платформа для обнаружения незаконных транзакций в режиме реального времени. Используй:
+           
+                <strong>Графы знани, (Neo4j) для остлеживания финансовых потоков 
+                </strong>
+                <strong>Нейронные сети(GCN) для оценки рисков отмывания денег</strong>
+            </p>
+            
+        </section>
 
-            <aside class="pre">
-                <div style ="margin-bottom: 20 px;">
-                    <input type="text" id="walletInput" placeholder="Enter Wallet Address..."
-                           style="width: 300px; padding: 10px;">
-                    <button onclick="handleSearch()" style="padding: 10px; cursor: pointer;">
-                        Analyze Connections
-                    </button>          
+        <div class="kpi_panel">
+            <div class=""kpi_card">
+            <h4> F1-Score (IA)</h4>
+            <h2 id ="kpi-f1">81.0%</h2>    
+        </div>
+        <div class ="kpi-card">
+            <h4>
+                Уровен точности
+            </h4>
+            <h2 id="kpi-precision"> 87.0% </h2>
+        </div>
+        <div class="kpi-card">
+            <h4>Надежно Модели</h4>
+                <h2 id="kpi-conf">высоки</h2>
+        </div>
+
+        <div class="columns layout-grid">
+
+            <aside class="sidebar">
+                <div class="search-box">
+                    <input type="text" id="walletInput" placeholder="Ingresa el txId (ej. 230425980)...">
+                    <button onclick="handleSearch()">Анализ</button>          
                 </div>
             
+                <div id="plotly-score-container"></div>
             </aside>
 
-            <article class="Main">
+            <article class="main-content">
                 <div id="graph-container"></div>
-
-        
             </article>
 
             </div>
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

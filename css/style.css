@@ -2,101 +2,147 @@
 /** (*) Selector targets every element on the page **/
 /** Remove default spacing that browser add to elements like <body>, <ul>
 this give a clean, consistent starting poin**/
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+*
+:root{
+    --bg-color:#f0f4f8;/*Белый с лёгким оттенком ледяного голубого*/
+    --primary-blue: #1e3a8a; /*Глубокий корпоративный синий*/
+    --accent-blue:#3b82f6; /*Яркий синий для кнопок*/
+    --text-dark:#333333; 
+    --card-bg: #ffffff; /**Чистый белый цвет для карточек**/
+}
+/* --- 2. PAGE BASE --- */
+body.tech-bg {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 1200px; /* Evita que la página se estire infinitamente en pantallas gigantes */
+    margin: 0 auto; /* Centra el contenido */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    
-   
+.main-header {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background-color: #fff;
+    max-width: 1200px; /* Prevents the page from stretching infinitely on huge screens */
+    margin: 0 auto; /* Centers the content */
 }
 
-header {
-    display: flex;
+/* --- 3. HEADER AND DESCRIPTION WINDOW --- */
+.main-header {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.info-box {
+    background-color: var(--card-bg);
+    padding: 15px 25px;
+    border-left: 5px solid var(--accent-blue); /* A decorative blue line on the left */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Very soft shadow for a 3D effect */
+    margin-bottom: 20px;
+}
+
+/* --- 4. METRICS PANEL (KPIs) --- */
+.kpi-panel {
+    display: flex; /* Places cards side by side horizontally */
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    gap: 20px; /* Space between cards */
+    margin-bottom: 20px;
 }
 
-.logo {
-    width: 200px;
-    height: auto;
-    background-color: #e0e0e0;
+.kpi-card {
+    background-color: var(--card-bg);
+    flex: 1; /* All cards have the exact same width */
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-blue); /* Thick top line for elegance */
 }
 
-.primary ul {
+.kpi-card h4 {
+    margin: 0;
+    color: #666; /* Gray for secondary text */
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.kpi-card h2 {
+    margin: 10px 0 0 0;
+    color: var(--primary-blue);
+    font-size: 32px; /* Very large numbers for impact */
+}
+
+/* --- 5. WORKSPACE COLUMNS (Main Layout) --- */
+.layout-grid {
     display: flex;
-    list-style: none;
-    gap: 30px;
+    gap: 20px;
 }
 
-.primary a {
-    text-decoration: none;
-    color: brown;
-    padding: 5px;
-    transition: 0.3s;
+.sidebar {
+    flex: 1; /* Takes up 1 part of the space (approx 33%) */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.primary a:hover {
-    color: rgb(110, 22, 22);
-    background-color: bisque;
-    border-radius: 4px;
+.main-content {
+    flex: 2; /* Takes up 2 parts of the space (approx 66%). The graph is the king of the screen */
 }
 
-.columns{
-    display:flex;
-    gap:30px;
-    align-items: stretch;
-}
-.sidebar, .main{
-flex: 1;
-
-padding: 24px;
-border-radius: 12px;
-}
-
-.pre{
-    flex:1;
- 
-}
-
-.main {
-    flex:1;
-    background-color:lightskyblue;
-    padding:10px;
-    border-radius: 12 px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-.main {
-    background-color: #F54927;
-    padding: 15px;
+/* --- 6. SEARCH BOX AND BUTTON --- */
+.search-box {
+    background-color: var(--card-bg);
+    padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.pre {
-    background-color: #e8f0fe;
+.search-box input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    padding: 12px;
+    background-color: var(--accent-blue);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth effect on hover */
+}
+
+.search-box button:hover {
+    background-color: var(--primary-blue); /* Darkens on hover */
+}
+
+/* --- 7. CHART CONTAINERS --- */
+#plotly-score-container {
+    background-color: var(--card-bg);
     border-radius: 8px;
-    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    height: 350px; /* Fixed height for the speedometer */
 }
 
-
-
-@media(max-width: 768px){
-    .columns {
-        flex-direction:column;
-    }
+#graph-container {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    height: 600px; /* Large fixed height for the Neo4j graph */
+    border: 1px solid #e1e8ed;
 }
